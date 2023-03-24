@@ -62,8 +62,21 @@
 </ol>
 ]]></content>
       <tags>
-        <tag>build_blog</tag>
-        <tag>learn</tag>
+        <tag>建站</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Markdown写作的入门常用语法</title>
+    <url>/2023/03/22/markDownPractice/</url>
+    <content><![CDATA[<h2 id="初识Markdown语言🌟"><a href="#初识Markdown语言🌟" class="headerlink" title="初识Markdown语言🌟"></a>初识Markdown语言🌟</h2><blockquote>
+<p>前言：我第一次对Markdown语言</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>建站</tag>
+        <tag>学习</tag>
+        <tag>Markdown</tag>
       </tags>
   </entry>
 </search>
