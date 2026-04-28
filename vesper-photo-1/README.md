@@ -5,7 +5,7 @@ A fully static, bilingual (繁中 / EN) wedding photography website built for Gi
 
 ---
 
-## 🚀 Quick Deploy to GitHub Pages
+## 🚀 Quick Deploy to GitHub Pages 
 
 1. **Create a new GitHub repository** (e.g. `vesperphoto`)
 2. **Upload all files** — drag and drop the entire folder contents into the repo, or push via Git:
