@@ -310,13 +310,12 @@ ul { list-style: none; }
   background: var(--rose-200);
 }
 .photo-slot img {
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: auto;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: unset;
 }
-.photo-slot.tall { aspect-ratio: 3/4.5; }
-.photo-slot.wide { aspect-ratio: 16/9; break-inside: avoid; }
-.photo-slot:not(.tall):not(.wide) { aspect-ratio: 4/3; }
-.photo-slot img { aspect-ratio: inherit; }
 .photo-overlay {
   position: absolute;
   inset: 0;
