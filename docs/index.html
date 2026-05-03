@@ -25,7 +25,6 @@
     <ul class="nav-links">
       <li><a href="#portfolio" data-zh="作品集" data-en="Portfolio">作品集</a></li>
       <li><a href="#about"     data-zh="关于我" data-en="About">关于我</a></li>
-      <li><a href="#contact"   data-zh="联系我" data-en="Contact">联系我</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -36,7 +35,6 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#portfolio" onclick="toggleMenu()" data-zh="作品集" data-en="Portfolio">作品集</a>
     <a href="#about"     onclick="toggleMenu()" data-zh="关于我" data-en="About">关于我</a>
-    <a href="#contact"   onclick="toggleMenu()" data-zh="联系我" data-en="Contact">联系我</a>
   </div>
 
   <!-- HERO -->
@@ -108,9 +106,6 @@
             <span class="stat-label" data-zh="份真实的爱" data-en="Genuine Love Stories">份真实的爱</span>
           </div>
         </div>
-        <a href="#contact" class="btn-outline">
-          <span data-zh="与我联系" data-en="Get in Touch">与我联系</span>
-        </a>
       </div>
     </div>
   </section>
@@ -122,66 +117,6 @@
       data-en="&ldquo;Every glance, every embrace — preserved in light, held forever in time.&rdquo;">
       「那天的每一个眼神，每一个拥抱，都因为有了照片，而永远留在了时间里。」
     </blockquote>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact-section" id="contact">
-    <div class="section-header">
-      <span class="section-tag" data-zh="联系我" data-en="Contact">联系我</span>
-      <h2 class="section-title" data-zh="让我们开始聊聊" data-en="Let's Talk">让我们开始聊聊</h2>
-      <p class="section-subtitle"
-        data-zh="告诉我你们的婚礼日期与故事，我很期待认识你们。"
-        data-en="Tell me your wedding date and your story. I'd love to get to know you.">
-        告诉我你们的婚礼日期与故事，我很期待认识你们。
-      </p>
-    </div>
-    <div class="contact-inner">
-      <div class="contact-info">
-        <div class="ci-item">
-          <span class="ci-label" data-zh="电子邮箱" data-en="Email">电子邮箱</span>
-          <a href="mailto:hello@vesperphoto.com" class="ci-value">hello@vesperphoto.com</a>
-        </div>
-        <div class="ci-item">
-          <span class="ci-label">Instagram</span>
-          <a href="https://instagram.com/vesperphoto" target="_blank" class="ci-value">@vesperphoto</a>
-        </div>
-        <div class="ci-item">
-          <span class="ci-label">WeChat / LINE</span>
-          <span class="ci-value">@vesperphoto</span>
-        </div>
-        <div class="ci-item">
-          <span class="ci-label" data-zh="服务地区" data-en="Service Area">服务地区</span>
-          <span class="ci-value" data-zh="全球跟拍 · 欢迎咨询" data-en="Worldwide · Destination Weddings Welcome">全球跟拍 · 欢迎咨询</span>
-        </div>
-      </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="fname" data-zh="你的名字" data-en="Your Name">你的名字</label>
-            <input type="text" id="fname" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="femail" data-zh="电子邮箱" data-en="Email">电子邮箱</label>
-            <input type="email" id="femail" name="email" required />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="fdate" data-zh="婚礼日期（若已确定）" data-en="Wedding Date (if confirmed)">婚礼日期（若已确定）</label>
-          <input type="date" id="fdate" name="date" />
-        </div>
-        <div class="form-group">
-          <label for="fmsg" data-zh="告诉我你们的故事" data-en="Tell me your story">告诉我你们的故事</label>
-          <textarea id="fmsg" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="form-submit">
-          <span data-zh="发送消息" data-en="Send Message">发送消息</span>
-        </button>
-        <p class="form-note" data-zh="我通常会在 24 小时内回复。" data-en="I usually reply within 24 hours.">我通常会在 24 小时内回复。</p>
-        <div class="form-success" id="formSuccess">
-          <span data-zh="谢谢你的消息！我会尽快与你联系。" data-en="Thank you! I'll be in touch soon.">谢谢你的消息！我会尽快与你联系。</span>
-        </div>
-      </form>
-    </div>
   </section>
 
   <!-- FOOTER -->

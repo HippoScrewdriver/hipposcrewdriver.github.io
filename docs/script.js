@@ -113,20 +113,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape')     closeLightbox();
 });
 
-/* ── CONTACT FORM ── */
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit span');
-  const success = document.getElementById('formSuccess');
-  btn.textContent = currentLang === 'zh' ? '发送中…' : 'Sending…';
-  setTimeout(() => {
-    e.target.reset();
-    btn.textContent = currentLang === 'zh' ? '发送消息' : 'Send Message';
-    success.classList.add('show');
-    setTimeout(() => success.classList.remove('show'), 5000);
-  }, 800);
-}
-
 /* ── SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
@@ -140,7 +126,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
   initGallery();
-  document.querySelectorAll('.about-inner, .contact-inner, .section-header, .pull-quote').forEach(el => {
+  document.querySelectorAll('.about-inner, .section-header, .pull-quote').forEach(el => {
     el.classList.add('reveal');
     revealObserver.observe(el);
   });
