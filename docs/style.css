@@ -426,7 +426,7 @@ a.ci-value:hover { color: var(--text-dark); }
   .masonry-grid { columns: 2; padding: 0 24px; }
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
   .about-deco { display: none; }
-  .about-img-slot { aspect-ratio: 3/2; }
+  .about-img-slot { aspect-ratio: 2/3; }
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
 }
 @media (max-width: 600px) {
