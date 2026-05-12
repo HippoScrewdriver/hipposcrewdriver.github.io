@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Namarie Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #faf8f6; color: #2e1e1e; }
+
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 32px 52px; border-bottom: 1px solid #ede8e3;
+    opacity: 0; animation: fadeUp 0.5s ease 0.1s forwards;
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 400; letter-spacing: 0.12em; color: #3a2a2a; text-decoration: none; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 11px; letter-spacing: 0.2em; color: #a08c8c; text-transform: uppercase; font-weight: 300; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: #c9a69a; }
+
+  /* CONTENT */
+  .content { padding: 52px; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 52px; opacity: 0; animation: fadeUp 0.5s ease 0.3s forwards; }
+  .page-title { font-family: 'Playfair Display', serif; font-size: 34px; color: #2e1e1e; font-weight: 300; }
+  .page-title i { font-style: italic; color: #c9a69a; }
+  .page-tag { font-size: 10px; letter-spacing: 0.3em; color: #c9a69a; text-transform: uppercase; font-weight: 300; }
+
+  /* CHAPTERS */
+  .chapters { display: flex; flex-direction: column; gap: 48px; }
+  .chapter { opacity: 0; transform: translateY(16px); }
+  .chapter:nth-child(1) { animation: fadeUp 0.55s ease 0.4s forwards; }
+  .chapter:nth-child(2) { animation: fadeUp 0.55s ease 0.65s forwards; }
+  .chapter:nth-child(3) { animation: fadeUp 0.55s ease 0.9s forwards; }
+
+  .ch-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #ede8e3; }
+  .ch-name { font-family: 'Playfair Display', serif; font-size: 22px; color: #2e1e1e; font-weight: 300; }
+  .ch-name i { font-style: italic; }
+  .ch-count { font-size: 10px; letter-spacing: 0.22em; color: #c9a69a; text-transform: uppercase; font-weight: 300; }
+
+  .grid-a { display: flex; gap: 6px; align-items: flex-start; }
+  .grid-b { display: flex; gap: 6px; align-items: flex-start; }
+  .grid-c { display: flex; gap: 6px; align-items: flex-start; }
+
+  .cell { overflow: hidden; border-radius: 2px; position: relative; flex: 1; }
+  .grid-a .cell:first-child,
+  .grid-b .cell:last-child { flex: 2; }
+  .cell img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
+  .cell:hover img { transform: scale(1.02); }
+
+  .c1 { background: #ddc8bc; } .c2 { background: #e8d5ce; } .c3 { background: #ead8d0; }
+  .c4 { background: #f0e0d8; } .c5 { background: #e2cec6; } .c6 { background: #eddbd4; }
+  .c7 { background: #e6d2ca; } .c8 { background: #f2e4de; } .c9 { background: #dcc6be; } .c10 { background: #eeddd6; }
+
+  /* FOOTER BAR */
+  .bar { height: 1px; background: #ede8e3; margin-top: 56px; position: relative; overflow: hidden; }
+  .bar-fill { height: 100%; width: 0; background: #c9a69a; animation: barGrow 1.4s ease 1s forwards; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes barGrow { from { width: 0; } to { width: 68%; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Namarie Studio</a>
+  <ul class="nav-links">
+    <li><a href="gallery.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="top">
+    <h2 class="page-title">Selected <i>work</i></h2>
+    <span class="page-tag">Portfolio — Su Lee</span>
+  </div>
+
+  <div class="chapters">
+
+    <div class="chapter">
+      <div class="ch-head">
+        <span class="ch-name"><i>Ceremonies</i></span>
+        <span class="ch-count">24 images</span>
+      </div>
+      <div class="grid-a">
+        <div class="cell c1"><img src="images/IMG_4862.JPG" alt="Ceremony 1" onerror="this.style.display='none'"></div>
+        <div class="cell c2"><img src="images/IMG_4863.JPG" alt="Ceremony 2" onerror="this.style.display='none'"></div>
+        <div class="cell c3"><img src="images/IMG_4864.JPG" alt="Ceremony 3" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-head">
+        <span class="ch-name"><i>Portraits</i></span>
+        <span class="ch-count">18 images</span>
+      </div>
+      <div class="grid-b">
+        <div class="cell c4"><img src="images/IMG_4865.JPG" alt="Portrait 1" onerror="this.style.display='none'"></div>
+        <div class="cell c5"><img src="images/IMG_4866.JPG" alt="Portrait 2" onerror="this.style.display='none'"></div>
+        <div class="cell c6"><img src="images/IMG_4892.JPG" alt="Portrait 3" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+    <div class="chapter">
+      <div class="ch-head">
+        <span class="ch-name"><i>Details</i></span>
+        <span class="ch-count">32 images</span>
+      </div>
+      <div class="grid-c">
+        <div class="cell c7"><img src="images/IMG_4893.JPG" alt="Detail 1" onerror="this.style.display='none'"></div>
+        <div class="cell c8"><img src="images/IMG_4894.JPG" alt="Detail 2" onerror="this.style.display='none'"></div>
+        <div class="cell c9"><img src="images/IMG_4895.JPG" alt="Detail 3" onerror="this.style.display='none'"></div>
+        <div class="cell c10"><img src="images/IMG_4896.JPG" alt="Detail 4" onerror="this.style.display='none'"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bar"><div class="bar-fill"></div></div>
+</div>
+
+</body>
+</html>
