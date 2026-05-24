@@ -39,14 +39,19 @@
     opacity: 0; animation: fadeUp 0.6s ease 0.6s forwards;
   }
   h1 i { font-style: italic; color: #c9a69a; }
-  .word-fade {
+  .word-cycle {
     display: inline-block;
     clip-path: inset(0 100% 0 0);
-    animation: revealLTR 1.4s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+    opacity: 0;
   }
-  @keyframes revealLTR {
-    from { clip-path: inset(0 100% 0 0); }
-    to   { clip-path: inset(0 0% 0 0); }
+  .word-cycle.animating {
+    animation: wordCycle 3.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes wordCycle {
+    0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+    32%  { clip-path: inset(0 0% 0 0);   opacity: 1; }
+    72%  { clip-path: inset(0 0% 0 0);   opacity: 1; }
+    100% { clip-path: inset(0 0% 0 0);   opacity: 0; }
   }
   .rule { width: 0; height: 1px; background: #c9a69a; margin: 24px 0; animation: grow 0.5s ease 1.1s forwards; }
   .desc {
@@ -61,10 +66,27 @@
   }
   .cta:hover { color: #c9a69a; }
 
-  /* HERO IMAGE — single image, natural ratio, no cropping */
-  .hero-right { overflow: hidden; background: #e8d8d0; }
-  .hero-right img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; opacity: 0; animation: imgReveal 0.8s ease 0.7s forwards; }
-  .hero-right:hover img { transform: scale(1.02); }
+  /* HERO IMAGE */
+  .hero-right {
+    background: #faf8f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px;
+  }
+  .hero-right img {
+    width: 82%;
+    height: auto;
+    display: block;
+    box-shadow: 0 6px 32px rgba(46, 30, 30, 0.10);
+    opacity: 0;
+    animation: imgReveal 0.8s ease 0.7s forwards;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+  }
+  .hero-right:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 12px 48px rgba(46, 30, 30, 0.15);
+  }
 
   /* GALLERY */
   .gallery-section { padding: 52px; }
@@ -73,56 +95,32 @@
   .page-title i { font-style: italic; color: #c9a69a; }
   .page-tag { font-size: 10px; letter-spacing: 0.3em; color: #c9a69a; text-transform: uppercase; font-weight: 300; }
 
-  .chapters { display: flex; flex-direction: column; gap: 48px; }
-  .chapter { opacity: 0; transform: translateY(16px); }
-  .chapter:nth-child(1) { animation: fadeUp 0.55s ease 0.4s forwards; }
-  .chapter:nth-child(2) { animation: fadeUp 0.55s ease 0.65s forwards; }
-  .chapter:nth-child(3) { animation: fadeUp 0.55s ease 0.9s forwards; }
-
-  .ch-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #ede8e3; }
-  .ch-name { font-family: 'Playfair Display', serif; font-size: 22px; color: #2e1e1e; font-weight: 300; }
-  .ch-name i { font-style: italic; }
-  .ch-count { font-size: 10px; letter-spacing: 0.22em; color: #c9a69a; text-transform: uppercase; font-weight: 300; }
-
-  /* Photo rows — flex, natural image ratio, no cropping */
-  .photo-rows { display: flex; flex-direction: column; gap: 6px; }
-  .photo-row { display: flex; gap: 6px; align-items: flex-start; }
-  .photo-row .cell { flex: 1; overflow: hidden; border-radius: 2px; }
-  .photo-row .cell.wide { flex: 2; }
-  .photo-row .cell img { width: 100%; height: auto; display: block; transition: transform 0.4s ease; }
-  .photo-row .cell:hover img { transform: scale(1.02); }
-
-  .c1 { background: #ddc8bc; } .c2 { background: #e8d5ce; } .c3 { background: #ead8d0; }
-  .c4 { background: #f0e0d8; } .c5 { background: #e2cec6; } .c6 { background: #eddbd4; }
-  .c7 { background: #e6d2ca; } .c8 { background: #f2e4de; } .c9 { background: #dcc6be; } .c10 { background: #eeddd6; }
-
-  .bar { height: 1px; background: #ede8e3; margin-top: 56px; position: relative; overflow: hidden; }
-  .bar-fill { height: 100%; width: 0; background: #c9a69a; animation: barGrow 1.4s ease 1s forwards; }
+  /* MASONRY — all photos together, natural ratio */
+  .masonry { columns: 3; column-gap: 8px; }
+  .masonry img {
+    width: 100%; height: auto; display: block;
+    margin-bottom: 8px; break-inside: avoid;
+    transition: opacity 0.3s ease;
+  }
+  .masonry img:hover { opacity: 0.88; }
 
   /* ANIMATIONS */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes grow { from { width: 0; } to { width: 32px; } }
   @keyframes imgReveal { from { opacity: 0; transform: scale(1.02); } to { opacity: 1; transform: scale(1); } }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-  @keyframes barGrow { from { width: 0; } to { width: 68%; } }
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="logo">Namarie Studio</a>
-  <ul class="nav-links">
-    <li><a href="#gallery">Work</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="tag">Wedding photography</div>
-    <h1>Light, love,<br>and <i><span class="word-fade">always</span></i></h1>
+    <h1>Light, love,<br>and <i><span class="word-cycle"></span></i></h1>
     <div class="rule"></div>
     <p class="desc">Su Lee photographs weddings with warmth and intention — soft light, honest moments, and stories worth keeping.</p>
     <a href="#gallery" class="cta">View Portfolio</a>
@@ -139,100 +137,60 @@
     <span class="page-tag">Portfolio — Su Lee</span>
   </div>
 
-  <div class="chapters">
-
-    <div class="chapter">
-      <div class="ch-head">
-        <span class="ch-name"><i>Ceremonies</i></span>
-        <span class="ch-count">12 images</span>
-      </div>
-      <div class="photo-rows">
-        <div class="photo-row">
-          <div class="cell wide c1"><img src="images/IMG_4862.JPG" alt=""></div>
-          <div class="cell c2"><img src="images/IMG_4863.JPG" alt=""></div>
-          <div class="cell c3"><img src="images/IMG_4864.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell wide c4"><img src="images/IMG_4856.JPG" alt=""></div>
-          <div class="cell c5"><img src="images/IMG_4857.JPG" alt=""></div>
-          <div class="cell c6"><img src="images/IMG_4897.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell c7"><img src="images/IMG_4898.JPG" alt=""></div>
-          <div class="cell c8"><img src="images/IMG_4899.JPG" alt=""></div>
-          <div class="cell c9"><img src="images/IMG_5212.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell c10"><img src="images/IMG_5213%202.JPG" alt=""></div>
-          <div class="cell c1"><img src="images/IMG_5214%202.JPG" alt=""></div>
-          <div class="cell wide c2"><img src="images/IMG_5215%202.JPG" alt=""></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chapter">
-      <div class="ch-head">
-        <span class="ch-name"><i>Portraits</i></span>
-        <span class="ch-count">12 images</span>
-      </div>
-      <div class="photo-rows">
-        <div class="photo-row">
-          <div class="cell c3"><img src="images/IMG_4865.JPG" alt=""></div>
-          <div class="cell c4"><img src="images/IMG_4866.JPG" alt=""></div>
-          <div class="cell wide c5"><img src="images/IMG_4892.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell wide c6"><img src="images/IMG_5216%203.JPG" alt=""></div>
-          <div class="cell c7"><img src="images/IMG_5217.JPG" alt=""></div>
-          <div class="cell c8"><img src="images/IMG_5218.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell c9"><img src="images/IMG_5219.JPG" alt=""></div>
-          <div class="cell wide c10"><img src="images/IMG_5220.JPG" alt=""></div>
-          <div class="cell c1"><img src="images/IMG_5221.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell wide c2"><img src="images/IMG_5222.JPG" alt=""></div>
-          <div class="cell c3"><img src="images/IMG_5223.JPG" alt=""></div>
-          <div class="cell c4"><img src="images/IMG_5224.JPG" alt=""></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="chapter">
-      <div class="ch-head">
-        <span class="ch-name"><i>Details</i></span>
-        <span class="ch-count">13 images</span>
-      </div>
-      <div class="photo-rows">
-        <div class="photo-row">
-          <div class="cell c5"><img src="images/IMG_4893.JPG" alt=""></div>
-          <div class="cell c6"><img src="images/IMG_4894.JPG" alt=""></div>
-          <div class="cell c7"><img src="images/IMG_4895.JPG" alt=""></div>
-          <div class="cell c8"><img src="images/IMG_4896.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell c9"><img src="images/IMG_4858.JPG" alt=""></div>
-          <div class="cell c10"><img src="images/IMG_4859.JPG" alt=""></div>
-          <div class="cell c1"><img src="images/IMG_4860.JPG" alt=""></div>
-          <div class="cell c2"><img src="images/IMG_4861.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell c3"><img src="images/IMG_5225.JPG" alt=""></div>
-          <div class="cell c4"><img src="images/IMG_5226.JPG" alt=""></div>
-          <div class="cell c5"><img src="images/IMG_5227.JPG" alt=""></div>
-          <div class="cell c6"><img src="images/IMG_5228.JPG" alt=""></div>
-        </div>
-        <div class="photo-row">
-          <div class="cell wide c7"><img src="images/photographer.jpg" alt=""></div>
-        </div>
-      </div>
-    </div>
-
+  <div class="masonry">
+    <img src="images/IMG_4783.JPG" alt="">
+    <img src="images/IMG_4856.JPG" alt="">
+    <img src="images/IMG_4857.JPG" alt="">
+    <img src="images/IMG_4858.JPG" alt="">
+    <img src="images/IMG_4859.JPG" alt="">
+    <img src="images/IMG_4860.JPG" alt="">
+    <img src="images/IMG_4861.JPG" alt="">
+    <img src="images/IMG_4862.JPG" alt="">
+    <img src="images/IMG_4863.JPG" alt="">
+    <img src="images/IMG_4864.JPG" alt="">
+    <img src="images/IMG_4865.JPG" alt="">
+    <img src="images/IMG_4866.JPG" alt="">
+    <img src="images/IMG_4892.JPG" alt="">
+    <img src="images/IMG_4893.JPG" alt="">
+    <img src="images/IMG_4894.JPG" alt="">
+    <img src="images/IMG_4895.JPG" alt="">
+    <img src="images/IMG_4896.JPG" alt="">
+    <img src="images/IMG_4897.JPG" alt="">
+    <img src="images/IMG_4898.JPG" alt="">
+    <img src="images/IMG_4899.JPG" alt="">
+    <img src="images/IMG_5212.JPG" alt="">
+    <img src="images/IMG_5213%202.JPG" alt="">
+    <img src="images/IMG_5214%202.JPG" alt="">
+    <img src="images/IMG_5215%202.JPG" alt="">
+    <img src="images/IMG_5216%203.JPG" alt="">
+    <img src="images/IMG_5217.JPG" alt="">
+    <img src="images/IMG_5218.JPG" alt="">
+    <img src="images/IMG_5219.JPG" alt="">
+    <img src="images/IMG_5220.JPG" alt="">
+    <img src="images/IMG_5221.JPG" alt="">
+    <img src="images/IMG_5222.JPG" alt="">
+    <img src="images/IMG_5223.JPG" alt="">
+    <img src="images/IMG_5224.JPG" alt="">
+    <img src="images/IMG_5225.JPG" alt="">
+    <img src="images/IMG_5226.JPG" alt="">
+    <img src="images/IMG_5227.JPG" alt="">
+    <img src="images/IMG_5228.JPG" alt="">
+    <img src="images/photographer.jpg" alt="">
   </div>
-
-  <div class="bar"><div class="bar-fill"></div></div>
 </section>
 
+<script>
+const words = ['forever', 'you', 'always'];
+let wi = 0;
+const el = document.querySelector('.word-cycle');
+function showNext() {
+  el.textContent = words[wi];
+  el.classList.remove('animating');
+  el.offsetHeight;
+  el.classList.add('animating');
+  wi = (wi + 1) % words.length;
+}
+setTimeout(() => { showNext(); setInterval(showNext, 3800); }, 1600);
+</script>
 </body>
 </html>
