@@ -40,8 +40,13 @@
   }
   h1 i { font-style: italic; color: #c9a69a; }
   .word-fade {
-    opacity: 0;
-    animation: fadeUp 1.2s ease 1.6s forwards;
+    display: inline-block;
+    clip-path: inset(0 100% 0 0);
+    animation: revealLTR 1.4s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+  }
+  @keyframes revealLTR {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0% 0 0); }
   }
   .rule { width: 0; height: 1px; background: #c9a69a; margin: 24px 0; animation: grow 0.5s ease 1.1s forwards; }
   .desc {
