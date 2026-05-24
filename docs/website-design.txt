@@ -1,0 +1,16 @@
+Website name: Namarie studio
+
+purpose: portfolio website for a photographer named su lee, who take photos for wedding.
+
+vibe: sleek，artistic, wedding, rosy, light , romantic
+
+colors: rosy and white, wedding colors
+
+typography: vertical. headline with studio name. block 1 is photographer introduction, inside block 1 left side is photographer picture, right side is photographer introduction. 
+block 2 is gallary. The gallary should dispplay photos in their original dimension (length and width ratio). 
+
+layout: one page only. include header, photographer intro, and gallary
+
+animation: the title and short intro should be appearing gradually。
+
+picture path: the picture path should be under docs/images, those picture have random names.
